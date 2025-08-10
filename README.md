@@ -33,12 +33,6 @@ COMPATIBILITY SYMLINKS (FOR LEGACY DOCS/COMMANDS)
 PREREQUISITES
 - git, tar, and sudo privileges to write under /usr/share/wordlists/.
 
-INSTALL THE SCRIPT
-  sudo tee /usr/local/bin/install-wordlists.sh >/dev/null <<'EOF'
-  # (paste the script contents here)
-  EOF
-  sudo chmod +x /usr/local/bin/install-wordlists.sh
-
 USAGE
 - Core sets:
   sudo /usr/local/bin/install-wordlists.sh
