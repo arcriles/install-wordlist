@@ -5,7 +5,7 @@ This script installs popular pentesting wordlists directly into /usr/share/wordl
 Use --heavy to include very large corpora (storage‑intensive).
 
 SCRIPT NAME / PATH
-- /usr/local/bin/install-wordlists.sh
+```/usr/local/bin/install-wordlists.sh```
 
 WHAT IT INSTALLS (AND WHERE)
 - SecLists -> /usr/share/wordlists/SecLists/
@@ -48,16 +48,20 @@ QUICK VERIFY
 
 EXAMPLES
 - Gobuster (classic path):
-  gobuster dir -u http://target/     -w /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt     -x php,html,txt -t 40
+  ```gobuster dir -u http://target/     -w /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt     -x php,html,txt -t 40 ```
 
 - ffuf (dirsearch DB):
-  ffuf -u http://target/FUZZ -w /usr/share/wordlists/dirsearch/db/dicc.txt -t 60
+  ```ffuf -u http://target/FUZZ -w /usr/share/wordlists/dirsearch/db/dicc.txt -t 60```
 
 UPDATE
 - Re-run the same command; repositories are updated via git pull.
 
 UNINSTALL (MANUAL)
-  sudo rm -rf /usr/share/wordlists/{SecLists,FuzzDB,Assetnote,dirsearch,Trickest,PayloadsAllTheThings,IntruderPayloads,bruteforce-lists,Probable-Wordlists,dirbuster,Discovery,raft-*-words.txt,rockyou.txt}
+  ```
+sudo rm -rf /usr/share/wordlists
+  ```
+
+  
 
 NOTE
 - The --heavy option consumes a lot of disk space. Use only if you really need the full corpora.
