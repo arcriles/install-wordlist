@@ -57,7 +57,7 @@ EXAMPLES
 - ffuf (dirsearch DB):
   ```
   ffuf -u http://target/FUZZ -w /usr/share/wordlists/dirsearch/db/dicc.txt -t 60
-  \```
+  ```
 
 UPDATE
 - Re-run the same command; repositories are updated via git pull.
