@@ -1,12 +1,13 @@
-# install-wordlist
+<img width="624" height="275" alt="image" src="https://github.com/user-attachments/assets/4d55b9dc-411c-473a-8e4d-35b53c7fef54" /># install-wordlist
 im too lazy to pull all the wordlist for my ctf, so i made a script of my trusted wordlist repo
 
 This script installs popular pentesting wordlists directly into /usr/share/wordlists/ to match common documentation and tool defaults.
 Use --heavy to include very large corpora (storage‑intensive).
 
-SCRIPT NAME / PATH
+HOW TO RUN
 ```
-/usr/local/bin/install-wordlists.sh
+chmod +x install-wordlist.sh
+./install-wordlist.sh
 ```
 
 WHAT IT INSTALLS (AND WHERE)
