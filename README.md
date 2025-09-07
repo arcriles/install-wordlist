@@ -1,4 +1,4 @@
-<img width="624" height="275" alt="image" src="https://github.com/user-attachments/assets/4d55b9dc-411c-473a-8e4d-35b53c7fef54" /># install-wordlist
+# install-wordlist
 im too lazy to pull all the wordlist for my ctf, so i made a script of my trusted wordlist repo
 
 This script installs popular pentesting wordlists directly into /usr/share/wordlists/ to match common documentation and tool defaults.
