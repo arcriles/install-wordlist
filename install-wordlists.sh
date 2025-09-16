@@ -16,8 +16,13 @@ need tar
 clone_or_update () {
   local repo_url="$1" dest_dir="$2"
   if [[ -d "$dest_dir/.git" ]]; then
-    echo "[*] Updating $dest_dir"
-    sudo git -C "$dest_dir" pull --ff-only
+    echo "[*] Force updating $dest_dir, discarding local changes"
+    (
+      cd "$dest_dir"
+      sudo git fetch origin
+      sudo git reset --hard origin/master
+      sudo git pull
+    )
   else
     echo "[*] Cloning $repo_url -> $dest_dir"
     sudo git clone --depth=1 "$repo_url" "$dest_dir"
@@ -37,6 +42,7 @@ clone_or_update "https://github.com/trickest/wordlists.git"                 "$DE
 clone_or_update "https://github.com/swisskyrepo/PayloadsAllTheThings.git"   "$DEST/PayloadsAllTheThings"
 clone_or_update "https://github.com/1N3/IntruderPayloads.git"               "$DEST/IntruderPayloads"
 clone_or_update "https://github.com/random-robbie/bruteforce-lists.git"     "$DEST/bruteforce-lists"
+clone_or_update "https://github.com/TheKingOfDuck/fuzzDicts.git"            "$DEST/fuzzDicts"
 
 # --- Optional heavy sets ---
 if [[ "$HEAVY" -eq 1 ]]; then
@@ -71,6 +77,10 @@ sudo mkdir -p "$DEST/Discovery"
 for f in raft-small-words.txt raft-medium-words.txt raft-large-words.txt; do
   [[ -f "$DB_SRC/$f" ]] && sudo ln -sf "$DB_SRC/$f" "$DEST/$f"
 done
+
+# 4) Symlink for fuzzDicts to /usr/share/fuzzDicts
+[[ -L "/usr/share/fuzzDicts" ]] || sudo ln -s "$DEST/fuzzDicts" "/usr/share/fuzzDicts"
+
 
 # Permissions final
 sudo find "$DEST" -type d -exec chmod a+rx {} \;
